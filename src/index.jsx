@@ -13,7 +13,7 @@ import {setState, setClientId} from './action_creators';
 import getClientId from './client_id';
 import remoteActionMiddleware from './remote_action_middleware';
 
-require('./styles.css');
+require('./styles.scss');
 
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
 socket.on('state', state =>

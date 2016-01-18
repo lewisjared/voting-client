@@ -33,8 +33,8 @@ module.exports = {
         include: path.join(__dirname, 'src')
       },
       {
-        test: /\.css$/,
-        loader: 'style!css!autoprefixer?browsers=last 2 versions'
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'autoprefixer?browsers=last 2 versions', 'sass']
       }
     ]
   }
