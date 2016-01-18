@@ -4,6 +4,19 @@ import {expect} from 'chai';
 import reducer from '../src/reducer';
 
 describe('reducer', () => {
+  it('handles SET_CLIENT_ID', () => {
+    const initialState = Map();
+    const action = {
+      type: 'SET_CLIENT_ID',
+      clientId: 1234
+    };
+
+    const nextState = reducer(initialState, action);
+    expect(nextState).to.equal(fromJS({
+      clientId: 1234
+    }))
+  });
+
   it('handles SET_STATE', () => {
     const intialState = Map();
     const action = {
@@ -197,7 +210,7 @@ describe('reducer', () => {
     const initialState = fromJS({
       vote: {
         id: 1,
-        pair: ['Trainspotting', '28 Days Later'],
+        pair: ['Trainspotting', '28 Days Later']
       },
       hasVoted: 'Trainspotting'
     });
