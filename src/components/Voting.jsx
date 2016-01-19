@@ -19,9 +19,9 @@ export const Voting = React.createClass({
 
 function selector(state) {
   return {
-    winner: state.get('winner'),
-    hasVoted: state.get('hasVoted'),
-    pair: state.getIn(['vote', 'pair'])
+    winner: state.vote.get('winner'),
+    hasVoted: state.vote.get('hasVoted'),
+    pair: state.vote.get('pair')
   };
 }
 

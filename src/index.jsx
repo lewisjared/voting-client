@@ -8,7 +8,7 @@ import io from 'socket.io-client';
 import App from './components/App';
 import {VotingContainer} from './components/Voting';
 import {ResultsContainer} from './components/Results';
-import reducer from './reducer';
+import reducer from './reducers';
 import {setState, setClientId} from './action_creators';
 import getClientId from './client_id';
 import remoteActionMiddleware from './remote_action_middleware';

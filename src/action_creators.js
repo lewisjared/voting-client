@@ -8,7 +8,7 @@ export function vote(entry) {
 
 export function setState(state) {
   return {
-    type: 'SET_STATE',
+    type: 'SET_VOTE_STATE',
     state: state
   }
 }
