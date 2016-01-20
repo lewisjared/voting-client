@@ -21,7 +21,7 @@ function selector(state) {
   return {
     winner: state.vote.get('winner'),
     hasVoted: state.vote.get('hasVoted'),
-    pair: state.vote.get('pair')
+    pair: state.vote.getIn(['state', 'pair'])
   };
 }
 

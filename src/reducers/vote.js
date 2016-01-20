@@ -1,12 +1,11 @@
 import {Map, fromJS} from 'immutable';
 
 function setVoteState(state, newState) {
-  return state.merge(newState);
+  return state.mergeIn(['state'], newState);
 }
 
 function voteEntry(state, entry) {
-  const currentPair = state.get('pair');
-  console.log(currentPair);
+  const currentPair = state.getIn(['state', 'pair']);
   if (currentPair && currentPair.includes(entry)) {
     return state.set('hasVoted', entry);
   }
@@ -15,7 +14,7 @@ function voteEntry(state, entry) {
 }
 
 function resetVote(state, nextState) {
-  if (nextState.get('id') != state.get('id')) {
+  if (nextState.getIn(['state', 'id']) != state.getIn(['state', 'id'])) {
     return nextState.remove('hasVoted');
   }
 
@@ -23,7 +22,7 @@ function resetVote(state, nextState) {
 }
 
 function setRoom(state, room, roomState={}) {
-  let cleanedState = state.remove('pair').remove('tally').remove('entries').remove('id').set('room', room);
+  let cleanedState = state.remove('state').set('room', room);
   return setVoteState(cleanedState, roomState);
 }
 
