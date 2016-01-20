@@ -26,3 +26,10 @@ export function setClientId(id) {
     clientId: id
   };
 }
+
+export function setRoom(room) {
+  return {
+    type: 'SET_ROOM',
+    room
+  }
+}

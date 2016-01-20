@@ -1,7 +1,7 @@
 import {List, Map, fromJS} from 'immutable';
 import {expect} from 'chai';
 
-import reducer from './vote';
+import reducer from './../../src/reducers/vote';
 
 describe('vote reducer', () => {
   it('handles SET_VOTE_STATE', () => {
@@ -181,5 +181,43 @@ describe('vote reducer', () => {
       id: 2,
       pair: ['28 Days Later', 'Casablanca']
     }))
+  });
+
+  it('handles SET_ROOM', () => {
+    const initialState = Map();
+    const action = {
+      type: 'SET_ROOM',
+      room: 'test_room'
+    };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.equal(fromJS({
+      room: 'test_room'
+    }));
+  });
+
+  it('resets the current rooms state on SET_ROOM', () => {
+    const initialState = fromJS({
+      room: 'first_room',
+      id: 21,
+      pair: ['Trainspotting', '28 Days Later'],
+      tally: {
+        'Trainspotting': 5
+      },
+      entries: ['Casablanca']
+    });
+    const action = {
+      type: 'SET_ROOM',
+      room: 'test_room',
+      state: {
+        pair: ['Transformers']
+      }
+    };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.equal(fromJS({
+      room: 'test_room',
+      pair: ['Transformers']
+    }));
   });
 });

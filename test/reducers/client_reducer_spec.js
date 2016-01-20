@@ -1,7 +1,7 @@
 import {Map, fromJS} from 'immutable';
 import {expect} from 'chai';
 
-import reducer from './client';
+import reducer from './../../src/reducers/client';
 
 
 describe('client reducer', () => {
