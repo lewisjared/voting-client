@@ -1,16 +1,20 @@
 {
   "name": "voting-client",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Web client for voting on topics",
+  "repository": "https://github.com/lewisjared/voting-client.git",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
     "start": "webpack-dev-server -d"
   },
-  "keywords": [],
-  "author": "",
-  "license  ": "ISC",
+  "keywords": [
+    "react",
+    "vote",
+    "app"
+  ],
+  "author": "Jared Lewis <jared@jared.kiwi.nz>",
+  "license  ": "MIT",
   "babel": {
     "presets": [
       "es2015",
