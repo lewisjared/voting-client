@@ -21,7 +21,7 @@ function resetVote(state, nextState) {
   return nextState
 }
 
-function setRoom(state, room, roomState={}) {
+function joinRoom(state, room, roomState={}) {
   let cleanedState = state.remove('state').set('room', room);
   return setVoteState(cleanedState, roomState);
 }
@@ -32,8 +32,8 @@ export default function vote(state = Map(), action) {
       return resetVote(state, setVoteState(state, action.state));
     case 'VOTE':
       return voteEntry(state, action.entry);
-    case 'SET_ROOM':
-      return setRoom(state, action.room, action.state);
+    case 'JOIN_ROOM':
+      return joinRoom(state, action.room, action.state);
   }
   return state;
 }

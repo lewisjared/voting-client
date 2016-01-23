@@ -216,7 +216,7 @@ describe('vote reducer', () => {
   it('handles SET_ROOM', () => {
     const initialState = Map();
     const action = {
-      type: 'SET_ROOM',
+      type: 'JOIN_ROOM',
       room: 'test_room'
     };
     const nextState = reducer(initialState, action);
@@ -239,7 +239,7 @@ describe('vote reducer', () => {
       }
     });
     const action = {
-      type: 'SET_ROOM',
+      type: 'JOIN_ROOM',
       room: 'test_room',
       state: {
         pair: ['Transformers']

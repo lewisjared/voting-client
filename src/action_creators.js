@@ -1,3 +1,5 @@
+import {configureRoom} from './socket';
+
 export function vote(entry) {
   return {
     type: 'VOTE',
@@ -27,9 +29,27 @@ export function setClientId(id) {
   };
 }
 
-export function setRoom(room) {
+export function leaveRoom(room) {
   return {
-    type: 'SET_ROOM',
+    type: 'LEAVE_ROOM',
     room
   }
+}
+
+export function joinRoom(room, state) {
+  return {
+    type: 'JOIN_ROOM',
+    room,
+    state
+  }
+}
+
+export function setRoom(room) {
+  return function (dispatch) {
+    // subscribe to the new room
+    return configureRoom(room).then(
+      state => dispatch(joinRoom(room, state)),
+      error => console.log('Could not join room', room, error)
+    )
+  };
 }
