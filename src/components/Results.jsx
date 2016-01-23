@@ -52,8 +52,8 @@ export const Results = React.createClass({
 function selector(state) {
   return {
     winner: state.vote.get('winner'),
-    tally: state.vote.get('tally'),
-    pair: state.vote.get('pair')
+    tally: state.vote.getIn(['state', 'tally']),
+    pair: state.vote.getIn(['state', 'pair'])
   };
 }
 
