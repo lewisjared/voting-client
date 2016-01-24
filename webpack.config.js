@@ -7,6 +7,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
+    'bootstrap-loader',
     './src/index.jsx'
   ],
   output: {
@@ -35,6 +36,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: ['style', 'css', 'autoprefixer?browsers=last 2 versions', 'sass']
+      },
+      {
+        test: /\.(woff2?|ttf|eot|svg)$/,
+        loaders: [ 'url?limit=10000' ]
       }
     ]
   }
