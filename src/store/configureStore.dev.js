@@ -6,16 +6,17 @@ import remoteActionMiddleware from './../remote_action_middleware';
 import DevTools from './../containers/Devtools';
 
 export default function (socket) {
-  const createCustomStore = compose(
-    applyMiddleware(
-      //Enable async control flow using redux-thunk
-      thunk,
-      //Send state to the server
-      remoteActionMiddleware(socket)
-    ),
-    // Also add listener for redux-devtools
-    DevTools.instrument()
-  )(createStore);
-
-  return createCustomStore(reducer);
+  return createStore(
+    reducer,
+    compose(
+      applyMiddleware(
+        //Enable async control flow using redux-thunk
+        thunk,
+        //Send state to the server
+        remoteActionMiddleware(socket)
+      ),
+      // Also add listener for redux-devtools
+      DevTools.instrument()
+    )
+  );
 }
