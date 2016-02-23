@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Router, {Route} from 'react-router';
+import {Router, browserHistory} from 'react-router';
 import {Provider} from 'react-redux';
 
 import routes from '../routes';
@@ -11,7 +11,9 @@ export default class Root extends Component {
     return (<Provider store={store}>
       <div>
         <DevTools />
-        <Router>{routes}</Router>
+        <Router history={browserHistory}>
+          {routes}
+        </Router>
       </div>
     </Provider>);
   };
