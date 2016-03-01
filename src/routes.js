@@ -14,6 +14,6 @@ const routes = (
       <Route path="results" component={ResultsContainer}/>
     </Route>
   </Route>
-)
+);
 
 export default routes;
