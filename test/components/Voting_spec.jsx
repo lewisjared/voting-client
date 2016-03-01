@@ -4,7 +4,7 @@ import {renderIntoDocument, scryRenderedDOMComponentsWithTag, Simulate} from 're
 import {expect} from 'chai';
 import {List} from 'immutable';
 
-import {Voting} from '../../src/components/Voting';
+import {Voting} from '../../src/containers/Voting';
 
 describe('Voting', () => {
   it('renders a pair of buttons', () => {

@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
-import Winner from './Winner';
-import Vote from './Vote';
+import Winner from './../components/Winner';
+import Vote from './../components/Vote';
 import * as actionCreators from '../action_creators';
 
 export const Voting = React.createClass({

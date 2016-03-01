@@ -4,7 +4,7 @@ import {Route, IndexRoute} from 'react-router';
 import App from './components/App';
 //import JoinForm from './components/Join';
 import RoomContainer from './containers/Room';
-import {VotingContainer} from './components/Voting';
+import {VotingContainer} from './containers/Voting';
 import {ResultsContainer} from './components/Results';
 
 const routes = (
