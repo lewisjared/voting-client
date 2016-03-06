@@ -1,6 +1,8 @@
 import jsdom from 'jsdom';
 import chai from 'chai';
 import chaiImmutable from 'chai-immutable';
+import hook from 'css-modules-require-hook'
+import sass from 'node-sass'
 
 const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
 const win = doc.defaultView;
@@ -16,3 +18,8 @@ Object.keys(window).forEach((key) => {
 });
 
 chai.use(chaiImmutable);
+
+hook({
+  extensions: [ '.scss' ],
+  preprocessCss: data => sass.renderSync({ data }).css
+})
