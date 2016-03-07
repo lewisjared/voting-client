@@ -1,4 +1,4 @@
-import {configureRoom} from './socket';
+import {createRoom as createNewRoom, configureRoom} from './socket';
 
 export function vote(entry) {
   return {
@@ -52,4 +52,13 @@ export function setRoom(room) {
       error => console.log('Could not join room', room, error)
     )
   };
+}
+
+export function createRoom(room) {
+  return function (dispatch) {
+    return createNewRoom(room).then(
+      link => console.log('Successfully created room', room, link),
+      error => console.log('Could not create room', room, error)
+    )
+  }
 }

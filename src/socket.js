@@ -17,4 +17,14 @@ export function configureRoom(room) {
   })
 }
 
+export function createRoom(room) {
+  return new Promise((resolve, reject) => {
+    socket.emit('createRoom', room);
+
+    socket.once('createRoomSuccess', function (link) {
+      resolve(link);
+    })
+  })
+}
+
 export default socket;

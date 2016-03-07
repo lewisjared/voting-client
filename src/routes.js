@@ -6,12 +6,14 @@ import App from './components/App';
 import RoomContainer from './containers/Room';
 import {VotingContainer} from './containers/Voting';
 import {ResultsContainer} from './components/Results';
+import {CreateRoomContainer} from './containers/CreateRoom';
 
 const routes = (
   <Route component={App}>
+    <Route path="/create" component={CreateRoomContainer} />
     <Route path="/room/:roomId" component={RoomContainer}>
-      <IndexRoute component={VotingContainer}/>
-      <Route path="results" component={ResultsContainer}/>
+      <IndexRoute component={VotingContainer} />
+      <Route path="results" component={ResultsContainer} />
     </Route>
   </Route>
 );
