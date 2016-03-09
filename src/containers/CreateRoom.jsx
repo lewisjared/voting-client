@@ -9,15 +9,14 @@ export class CreateRoom extends React.Component {
   render() {
     return (<div className="create-room container">
       <CreateRoomWidget />
+      <CreateRoomResponse link={}
     </div>)
   }
 };
 
 function selector(state) {
   return {
-    winner: state.vote.get('winner'),
-    hasVoted: state.vote.get('hasVoted'),
-    pair: state.vote.getIn(['state', 'pair'])
+    link: state.client.get('newRoomLink')
   };
 }
 

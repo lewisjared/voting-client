@@ -44,6 +44,13 @@ export function joinRoom(room, state) {
   }
 }
 
+export function createRoomSuccess(link) {
+  return {
+    type: 'CREATE_ROOM_SUCCESS',
+    link
+  }
+}
+
 export function setRoom(room) {
   return function (dispatch) {
     // subscribe to the new room
@@ -57,7 +64,7 @@ export function setRoom(room) {
 export function createRoom(room) {
   return function (dispatch) {
     return createNewRoom(room).then(
-      link => console.log('Successfully created room', room, link),
+      link => dispatch(createRoomSuccess(link)),
       error => console.log('Could not create room', room, error)
     )
   }
